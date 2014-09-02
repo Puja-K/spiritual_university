@@ -1,0 +1,4 @@
+var new_course = $("<%= escape_javascript(render(:partial =>  @course)) %>").hide();
+$('#courses').prepend(new_course);
+$('#course_<%= @course.id %>').fadeIn('slow');
+$('#new_course')[0].reset();

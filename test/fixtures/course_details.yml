@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  course_description: MyText
+  syllabus: MyText
+  recommended_background: MyText
+  course_format: MyText
+  course_id: 1
+
+two:
+  course_description: MyText
+  syllabus: MyText
+  recommended_background: MyText
+  course_format: MyText
+  course_id: 1

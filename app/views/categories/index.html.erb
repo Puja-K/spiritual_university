@@ -1,0 +1,26 @@
+<div class="page-header">
+  <h1>All Categories</h1>
+</div>
+
+    <% @categories.each do |category| %>
+     <div class="status">
+      <strong><%= category.name %> </strong>
+      <p><%= category.description %> </p>
+     </div>
+     <div class="meta">
+        <%= link_to 'Show', category %>
+        <span class="admin">
+          <%= link_to 'Edit', edit_category_path(category) %> |
+          <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </span>
+     </div>
+     
+     <% end %>
+        
+      
+        
+    
+
+<br>
+
+<%= link_to 'New Category', new_category_path %>

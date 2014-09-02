@@ -1,0 +1,52 @@
+<!--<p id="notice"><%= notice %></p>-->
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @category.description %>
+</p>
+
+<h2> Courses </h2>
+<div id="courses">
+	<% @category.courses.each do |course|%>
+		<%= div_for course do %>
+		<p>
+			#<strong>Posted <%= time_ago_in_words(course.created_at) %></strong><br />
+			<%= h(course.name)	%> <br/>
+			<%= course.short_desc%> <br/>
+			<%= course.duration%> </br/>
+			<%= course.language%>
+		</p>
+<% end %>
+	<% end %>
+
+</div>
+
+<%= form_for ([@category, Course.new ]) do |f| %>
+	<p> 
+		<div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :short_desc %><br>
+    <%= f.text_area :short_desc %>
+  </div>
+  <div class="field">
+    <%= f.label :duration %><br>
+    <%= f.text_field :duration %>
+  </div>
+  <div class="field">
+    <%= f.label :language %><br>
+    <%= f.text_field :language %>
+  </div>
+	</p>
+	<p> <%= f.submit "Add Course"%> </p>
+	<% end %>	
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>

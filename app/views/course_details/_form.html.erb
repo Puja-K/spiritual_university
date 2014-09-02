@@ -1,0 +1,37 @@
+<%= simple_form_for(@course_detail, htlml: {class: 'form-horizontal'}) do |f| %>
+  <% if @course_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@course_detail.errors.count, "error") %> prohibited this course_detail from being saved:</h2>
+
+      <ul>
+      <% @course_detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.input :course_description %><br>
+   
+  </div>
+  <div class="field">
+    <%= f.input :syllabus %><br>
+    
+  </div>
+  <div class="field">
+    <%= f.input :recommended_background %><br>
+    
+  </div>
+  <div class="field">
+    <%= f.input :course_format %><br>
+    
+  </div>
+  <div class="field">
+    <%= f.input :course_id %><br>
+    
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

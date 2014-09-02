@@ -1,0 +1,9 @@
+<%= div_for course do %>
+		<p>
+			#<strong>Posted-test <%= time_ago_in_words(course.created_at) %></strong><br />
+			<%= h(course.name)	%> <br/>
+			<%= course.short_desc%> <br/>
+			<%= course.duration%> </br/>
+			<%= course.language%>
+		</p>
+<% end %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Course description:</strong>
+  <%= @course_detail.course_description %>
+</p>
+
+<p>
+  <strong>Syllabus:</strong>
+  <%= @course_detail.syllabus %>
+</p>
+
+<p>
+  <strong>Recommended background:</strong>
+  <%= @course_detail.recommended_background %>
+</p>
+
+<p>
+  <strong>Course format:</strong>
+  <%= @course_detail.course_format %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @course_detail.course_id %>
+</p>
+
+<%= link_to 'Edit', edit_course_detail_path(@course_detail) %> |
+<%= link_to 'Back', course_details_path %>
