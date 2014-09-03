@@ -12,6 +12,9 @@
  *
  *= require_tree .
  *= require_self
- 
+ *= bootstrap
  */
 
+body {padding-top: 70px}
+
+.alert { margin-top: 10px}
