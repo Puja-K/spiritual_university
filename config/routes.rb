@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'user_profile/show'
+
   devise_for :users, :controllers => {registrations: 'registrations'}
 
 
@@ -18,6 +20,9 @@ Rails.application.routes.draw do
   end
 
   root to: 'categories#index'
+
+
+  get '/:id', to: 'user_profile#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

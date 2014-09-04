@@ -1,0 +1,17 @@
+<div class="page-header">
+	<h1><%= @user.full_name %> </h1>
+</div>
+
+<%if @categories %>
+	<% @categories.each do |category| %>
+		<div class="well">
+
+			<strong><%= category.name %></strong>
+			<hr />
+			<%= category.description %>
+		</div>
+
+	<%end%>
+
+
+<%end%>
