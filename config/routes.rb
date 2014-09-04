@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => {registrations: 'registrations'}
 
-  devise_scope :user do
-    get 'sign_up' , to: 'registrations#new', as: :sign_up
-    get 'login' , to: 'devise/sessions#new' , as: :login
-    get 'logout' , to: 'devise/sessions#destroy' , as: :logout
-  end
+
 
 
   resources :course_details
@@ -15,6 +11,11 @@ Rails.application.routes.draw do
     resources :courses
   end
 
+  devise_scope :user do
+    get 'sign_up' , to: 'registrations#new', as: :sign_up
+    get 'login' , to: 'devise/sessions#new' , as: :login
+    get 'logout' , to: 'devise/sessions#destroy' , as: :logout
+  end
 
   root to: 'categories#index'
   # The priority is based upon order of creation: first created -> highest priority.
