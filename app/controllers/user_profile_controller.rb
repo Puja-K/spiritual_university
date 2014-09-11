@@ -1,8 +1,8 @@
 class UserProfileController < ApplicationController
   
   def show
-  	@user = User.find(params[:id])
-  	@categories = Category.all
+  	@user = User.find(current_user.id)
+  	@courses = @user.courses
   	if @user
   		render action: :show
   	else

@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :enroll]
 
   # GET /courses
   # GET /courses.json
@@ -19,6 +19,21 @@ class CoursesController < ApplicationController
 
   # GET /courses/1/edit
   def edit
+  end
+
+  def enroll
+    @user = User.find(current_user.id)
+    @enrollment = @user.enrollments.create(course: @course)
+    respond_to do |format|
+      if @enrollment.save
+        format.html { redirect_to @course, notice: 'Successfully Signed up for this Course.' }
+        format.json { render :show, status: :created, location: @course }
+        format.js #calls create.js.erb
+      else
+        format.html { render :new }
+        format.json { render json: @course.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # POST /courses
